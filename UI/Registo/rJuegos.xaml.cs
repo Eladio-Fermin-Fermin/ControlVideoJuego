@@ -27,9 +27,15 @@ namespace ControlVideoJuego.UI.Registo
             InitializeComponent();
             this.DataContext = juegos;
 
+            //--------------------ColorId ComboBox--------------------------
+            TipoComboBox.ItemsSource = JuegosBLL.GetList(p => true);
+            TipoComboBox.SelectedValuePath = "Tipo";
+            TipoComboBox.DisplayMemberPath = "Tipo";
+
+
         }
 
-        //LIMPIAR
+        //LIMPIAR (｡◕‿◕｡)
         private void Limpiar()
         {
             this.juegos = new Juegos();
@@ -157,6 +163,14 @@ namespace ControlVideoJuego.UI.Registo
 
 
         }
+
+        private void TipoComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
         //BOTON ELIMINAR *************************************************************************
         /* private void EliminarButton_Click(object sender, RoutedEventArgs e)
          {

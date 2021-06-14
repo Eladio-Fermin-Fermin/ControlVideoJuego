@@ -1,0 +1,98 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlVideoJuego.UI.Registo"
+        x:Class="RentCar.UI.Consulta.Consulta_vehiculos"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Consultas de Videojuegos" Height="506" Width="1165">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Cyan" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+
+
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="557,-5,0,0" VerticalAlignment="Top" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5" Width="757" Grid.ColumnSpan="2" >
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.388"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="1.165"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <TextBox x:Name="CriterioTextBox" Margin="30, 20" FontSize="14" materialDesign:HintAssist.Hint="Criterio" materialDesign:HintAssist.IsFloating="True" Text="" TextWrapping="Wrap" Width="206" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}"/>
+                <Button  x:Name="BuscarButton" Style="{StaticResource MaterialDesignOutlinedButton}" Click="BuscarButton_Click">
+                    <DockPanel>
+
+                        <TextBlock VerticalAlignment="Center" Text="Buscar"/>
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Button x:Name="AgregarRentaButton" HorizontalAlignment="Right" Margin="30,0" Click="AgregarVehiculoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0,0,5,0" Kind="Add" VerticalAlignment="Center"/>
+                        <TextBlock Text="Nuevo VideoJuego"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" Margin="507,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="CriterioTextBox_Copy" FontSize="14" materialDesign:HintAssist.Hint="Criterio" materialDesign:HintAssist.IsFloating="True" Text="" TextWrapping="Wrap" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" Margin="30,20,541,15"/>
+            <TextBox x:Name="CriterioTextBox_Copy1" FontSize="14" materialDesign:HintAssist.Hint="Criterio" materialDesign:HintAssist.IsFloating="True" Text="" TextWrapping="Wrap" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" Margin="286,20,286,15"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock Visibility="Hidden" x:Name="ButtonTextBlock" Text="{Binding ButtonText}"/>
+            <DataGrid x:Name="ResultadosDataGrid" SelectionMode="Single" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,0,10,10" >
+                <DataGrid.Columns>
+
+
+                    <!--<DataGridTextColumn Header="Cliente id" Width="1*" Binding="{Binding ClienteId}"/>-->
+                    <DataGridTextColumn Header="Nombre" Width="1*" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Fabricante" Width="1.1*" Binding="{Binding Fabricante}"/>
+                    <DataGridTextColumn Header="Plataforma" Width="1.1*" Binding="{Binding Plataforma}"/>
+                    <DataGridTextColumn Header="Tipo" Width="1*" Binding="{Binding Tipo , StringFormat=\{0:C\}}"/>
+                    <DataGridTextColumn Header="Categoría" Width="1.1*" Binding="{Binding Categoría, StringFormat=\{0:C\}}"/>
+
+                    <DataGridTextColumn Header="Estado" Width="1.1*" Binding="{Binding Estado}"/>
+                    <DataGridTemplateColumn Header="" Width="1.2*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="VerButton" Padding="0" Content="{Binding Text, ElementName=ButtonTextBlock}" Click="VerButton_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <d:DataGrid.Items>
+                    <MenuItem></MenuItem>
+                </d:DataGrid.Items>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
