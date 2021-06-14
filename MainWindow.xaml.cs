@@ -28,14 +28,14 @@ namespace ControlVideoJuego
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            rConsolas ramigos = new rConsolas();
-            ramigos.Show();
+            rJuegos rjuegos = new rJuegos();
+            rjuegos.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            rJuegos rjuegos = new rJuegos();
-            rjuegos.Show();
+            rConsolas ramigos = new rConsolas();
+            ramigos.Show();
         }
     }
 }

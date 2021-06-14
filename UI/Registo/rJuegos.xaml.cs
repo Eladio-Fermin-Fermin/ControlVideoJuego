@@ -122,8 +122,8 @@ namespace ControlVideoJuego.UI.Registo
         {
 
             {
-                if (!Validar())
-                    return;
+               /* if (!Validar())
+                    return;*/
 
                 var paso = JuegosBLL.Guardar(juegos);
                 if (paso)

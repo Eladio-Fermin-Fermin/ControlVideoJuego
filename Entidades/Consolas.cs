@@ -8,7 +8,7 @@ namespace ControlVideoJuego.Entidades
 
        [Key]
 
-       
+        public int ConsolaId { get; set; }
         public string Nombre { get; set; }
 
         public string Fabricante { get; set; }
